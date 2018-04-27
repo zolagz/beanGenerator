@@ -242,8 +242,11 @@ public class BeanGenerator {
 		}
 		file_body.append("\n");
 		file_body.append(class_body);
-		file_body.append("\n\t//------------------------Getters and Setters------------------------\\\\\n\n");
-		file_body.append(getset_body);
+		
+		if (!useLombok) {
+			file_body.append("\n\t//------------------------Getters and Setters------------------------\\\\\n\n");
+			file_body.append(getset_body);
+		}
 		file_body.append("}");
 		//System.out.println(file_body);
 		writer.write(file_body.toString());
